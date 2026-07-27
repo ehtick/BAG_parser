@@ -557,18 +557,7 @@ class DatabaseSqlite:
         panden = self.fetchall(f"SELECT pand_id, bouwjaar FROM adressen WHERE bouwjaar > {last_valid_build_year}")
         aantal = len(panden)
 
-        # Show max first 10 items with invalid build year
-        panden = panden[slice(10)]
-
-        text_panden = ''
-        for pand in panden:
-            if text_panden:
-                text_panden += ','
-            text_panden += pand[0] + ' ' + str(pand[1])
-        if text_panden:
-            text_panden = f" | panden: {text_panden}"
-
-        utils.print_log(f"fix: test adressen met ongeldig bouwjaar > {last_valid_build_year}: {aantal: n}{text_panden}")
+        utils.print_log(f"fix: test adressen met ongeldig bouwjaar > {last_valid_build_year}: {aantal: n}")
 
         if aantal > 0:
             utils.print_log(f"fix: verwijder {aantal:n} ongeldige bouwjaren (> {last_valid_build_year})")
