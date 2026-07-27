@@ -578,15 +578,7 @@ class DatabaseSqlite:
         verblijfsobject_ids = self.fetchall("SELECT verblijfsobject_id FROM adressen WHERE oppervlakte = 999999;")
         aantal = len(verblijfsobject_ids)
 
-        text_ids = ''
-        for verblijfsobject_id in verblijfsobject_ids:
-            if text_ids:
-                text_ids += ','
-            text_ids += verblijfsobject_id[0]
-        if text_ids:
-            text_ids = f" | verblijfsobject_ids: {text_ids}"
-
-        utils.print_log(f"fix: test adressen met ongeldige oppervlakte = 999999: {aantal: n}{text_ids}")
+        utils.print_log(f"fix: test adressen met ongeldige oppervlakte = 999999: {aantal: n}")
         if aantal > 0:
             utils.print_log(f"fix: verwijder {aantal:n} ongeldige oppervlaktes (999999)")
             self.connection.execute("UPDATE adressen SET oppervlakte=NULL WHERE oppervlakte = 999999;")

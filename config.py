@@ -1,8 +1,8 @@
 import importlib.util
 import locale
 
-version = 93
-version_date = '10 March 2026'
+version = 94
+version_date = '27 July 2026'
 
 locale.setlocale(locale.LC_ALL, 'nl_NL')
 
@@ -47,10 +47,10 @@ parse_geometries = False
 # Set to 0 if you prefer warning messages and manually check and correct these entries yourself.
 delete_addresses_without_public_spaces_if_less_than = 100
 
-# The parser uses multiprocessing to speed up parsing the data. For best performance set to the number of
+# The parser uses multiprocessing to speed up parsing the data. For the best performance set to the number of
 # physical (not logical) CPU cores in your system. Python multiprocessing does not use hyper-threading.
 # The psutil module automatically determines the physical CPU core count. If it is not installed,
-# it defaults to the manual specified value (8).
+# it defaults to the manual-specified value (8).
 
 has_psutil = importlib.util.find_spec("psutil") is not None
 if has_psutil:
