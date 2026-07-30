@@ -1,8 +1,8 @@
 import importlib.util
 import locale
 
-version = 94
-version_date = '27 July 2026'
+version = 95
+version_date = '30 July 2026'
 
 locale.setlocale(locale.LC_ALL, 'nl_NL')
 
